@@ -3,7 +3,10 @@ import json
 from google import genai
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load env file using the absolute path relative to this file
+backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+dotenv_path = os.path.join(backend_dir, ".env")
+load_dotenv(dotenv_path)
 
 # Configure Gemini
 GENAI_API_KEY = os.getenv("GOOGLE_API_KEY")
